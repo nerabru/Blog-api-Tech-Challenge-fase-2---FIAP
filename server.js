@@ -30,7 +30,7 @@ const Post = mongoose.model('Post', PostSchema);
 // ===== ROTAS =====
 
 app.get('/', (req, res) => {
-  res.send('API do Blog está rodando 🚀');
+  res.send('API do Blog está ok, podemos seguir!');
 });
 
 app.get('/posts', async (req, res) => {
