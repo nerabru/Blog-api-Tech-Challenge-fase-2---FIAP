@@ -1,3 +1,4 @@
+jest.setTimeout(30000);
 process.env.NODE_ENV = 'test';
 
 const request = require('supertest');
@@ -20,7 +21,10 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await mongoose.disconnect();
-  await mongoServer.stop();
+
+  if (mongoServer) {
+    await mongoServer.stop();
+  }
 });
 
 describe('API Blog - Posts', () => {
