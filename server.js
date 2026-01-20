@@ -30,7 +30,7 @@ const Post = mongoose.model('Post', PostSchema);
 // ===== ROTAS =====
 
 app.get('/', (req, res) => {
-  res.send('API do Blog está ok, podemos seguir!');
+  res.send('API do Blog está ok!');
 });
 
 app.get('/posts', async (req, res) => {
@@ -68,12 +68,12 @@ app.delete('/posts/:id', async (req, res) => {
   res.json({ mensagem: 'Post deletado com sucesso' });
 });
 
-// 🔹 Sobe o servidor SOMENTE se não for teste
+// 🔹 Sobe o servidor se não for teste
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT} 🚀`);
   });
 }
 
-// 🔹 Exporta APENAS o app (Supertest precisa disso)
+// 🔹 Exporta APENAS o app
 module.exports = app;
